@@ -11,18 +11,15 @@ module.exports = {
     sourceType: 'module',
     allowImportExportEverywhere: true,
     ecmaFeatures: {
-      jsx: true
+      jsx: true,
     },
   },
-  plugins: [
-    'react',
-    'xss',
-  ],
+  plugins: ['react', 'xss'],
   rules: {
     'react/display-name': 0,
     'react/prop-types': 0,
-    'camelcase': 0,
-    'eqeqeq': 0,
+    camelcase: 0,
+    eqeqeq: 0,
     'max-len': ['error', 120],
     'comma-dangle': ['error', 'always-multiline'],
     'space-before-function-paren': ['error', 'never'],
@@ -31,5 +28,9 @@ module.exports = {
     indent: ['error', 2],
     quotes: ['error', 'single'],
     'no-console': 0,
+    semi: 0,
+    'object-curly-spacing': 0,
+    indent: 0,
+    'jsx-quotes': 0,
   },
 };

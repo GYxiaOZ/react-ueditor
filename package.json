@@ -4,7 +4,7 @@
   "description": "an ueditor component for react",
   "main": "lib",
   "scripts": {
-    "build": "rm -rf lib/ && babel src -d lib",
+    "build": "cross-env rimraf lib/ && babel src -d lib",
     "lint": "eslint src/**/*.js example/**/*.js --fix",
     "start": "webpack-dev-server --config example/webpack.config.js --open"
   },
@@ -38,6 +38,7 @@
     "@babel/preset-react": "^7.0.0",
     "babel-eslint": "^9.0.0",
     "babel-loader": "^8.0.4",
+    "cross-env": "^5.2.0",
     "css-loader": "^1.0.1",
     "eslint": "^4.19.0",
     "eslint-config-standard": "^10.2.1",
@@ -53,6 +54,7 @@
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-router-dom": "^4.3.1",
+    "rimraf": "^2.6.3",
     "style-loader": "^0.23.1",
     "webpack": "^4.26.1",
     "webpack-cli": "^3.1.2",
