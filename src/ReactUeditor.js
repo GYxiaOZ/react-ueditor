@@ -90,6 +90,11 @@ class ReactUeditor extends React.Component {
 
   componentDidMount() {
     let { ueditorPath, container } = this.props;
+    if (container.UE) {
+      this.tempfileInput = container.document.getElementById(this.fileInputID);
+      this.initEditor();
+      return;
+    }
     if (!container.UE && !container.UE_LOADING_PROMISE) {
       container.UE_LOADING_PROMISE = this.createScript(ueditorPath + '/ueditor.config.js').then(
         () => {
