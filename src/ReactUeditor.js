@@ -116,7 +116,11 @@ class ReactUeditor extends React.Component {
    * 2. 用户对编辑器进行编辑
    */
   componentWillReceiveProps(nextProps) {
-    if ('value' in nextProps && this.props.value !== nextProps.value) {
+    if (
+      'value' in nextProps &&
+      this.props.value !== nextProps.value &&
+      this.content !== nextProps.value
+    ) {
       this.isContentChangedByWillReceiveProps = true;
       this.content = nextProps.value;
       if (this.ueditor) {

@@ -1,7 +1,7 @@
 # react-ueditor
 ![react-ueditor](https://cloud-minapp-1131.cloud.ifanrusercontent.com/1eGmM9tnLMPCRifj.png)
 
-使用 react 框架对 ueditor 进行封装和扩展
+使用 react 框架对 ueditor 进行封装和扩展，fork自https://github.com/ifanrx/react-ueditor，感谢
 
 ![](https://img.shields.io/npm/v/ifanrx-react-ueditor.svg) ![](https://img.shields.io/npm/dw/ifanrx-react-ueditor.svg)
 
