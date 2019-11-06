@@ -1,10 +1,12 @@
 # react-ueditor
+
 ![react-ueditor](https://cloud-minapp-1131.cloud.ifanrusercontent.com/1eGmM9tnLMPCRifj.png)
 
-使用 react 框架对 ueditor 进行封装和扩展，fork自https://github.com/ifanrx/react-ueditor，感谢
+使用 react 框架对 ueditor 进行封装和扩展
+
+fork 自https://github.com/ifanrx/react-ueditor，并进行了少量的修改，感谢 ifanrx
 
 ![](https://img.shields.io/npm/v/ifanrx-react-ueditor.svg) ![](https://img.shields.io/npm/dw/ifanrx-react-ueditor.svg)
-
 
 ### ✨ 特性
 
@@ -13,23 +15,20 @@
 - 支持对复制进来的图片进行操作
 - 允许扩展工具栏，支持在扩展中使用已有的 react 组件
 
-
-
 ### 📦 下载
 
 ```
 # 使用 npm 安装
-npm install ifanrx-react-ueditor --save
+npm install @gyxiaoz/gmsoft-react-ueditor --save
 
 # 使用 yarn 安装
-yarn add ifanrx-react-ueditor
+yarn add @gyxiaoz/gmsoft-react-ueditor
 ```
-
 
 ### 🔨 使用
 
 ```
-import ReactUeditor from 'ifanrx-react-ueditor'
+import ReactUeditor from '@gyxiaoz/gmsoft-react-ueditor'
 
 <ReactUeditor
   ueditorPath={`${window.YOUR_PATH}/ueditor`}"
@@ -42,25 +41,25 @@ import ReactUeditor from 'ifanrx-react-ueditor'
 
 插件分为两种，一种是内置的插件，一种是自定义的插件。现支持内置插件如下：
 
-1. insertCode  插入代码块
-2. uploadImage  上传图片
-3. uploadVideo  上传视频
-4. uploadAudio  上传音频
-5. insertLink  添加链接
+1. insertCode 插入代码块
+2. uploadImage 上传图片
+3. uploadVideo 上传视频
+4. uploadAudio 上传音频
+5. insertLink 添加链接
 
 内置插件，直接传入插件的名称即可。自定义插件则是传入一个 Function，类型定义（使用 typescript 只为了说明类型）为：
 
 ```typescript
 interface IPlugin {
-  (ueditor: UEditor): IPluginConfig
+  (ueditor: UEditor): IPluginConfig;
 }
 
 interface IPluginConfig {
-  cssRules: String
-  menuText: String
-  onIconClick?: () => void
-  render: (visible: Boolean, closeModal: () => void) => React.ReactElement<any>
-  title?: String
+  cssRules: String;
+  menuText: String;
+  onIconClick?: () => void;
+  render: (visible: Boolean, closeModal: () => void) => React.ReactElement<any>;
+  title?: String;
 }
 ```
 
@@ -70,44 +69,44 @@ UEditor 为 UEditor 实例。详细内容，请参考[官方文档](https://uedi
 
 1. 内置插件
 
-    ```javascript
-    <ReactUeditor
-      ...
-      plugins={[
-        'insertCode',
-        'uploadImage',
-        'uploadVideo',
-        'uploadAudio',
-        'insertLink',
-      ]}
-      ...
-    />
-    ```
+   ```javascript
+   <ReactUeditor
+     ...
+     plugins={[
+       'insertCode',
+       'uploadImage',
+       'uploadVideo',
+       'uploadAudio',
+       'insertLink',
+     ]}
+     ...
+   />
+   ```
 
 2. 自定义插件
 
-    ```javascript
-    const uploadImagePlugin = ueditor => {
-      return {
-        menuText: '图片上传',
-        cssRules: 'background-position: -726px -77px;',
-        render: (visible, closeModal) => {
-          const handleSelectImage = (url) => {
-            ueditor.focus()
-            ueditor.execCommand('inserthtml', `<img src="${url}" />`)
-            closeModal()
-          }
-          return <Modal visible={visible} onSelectImage={handleSelectImage} />
-        }
-      }
-    }
+   ```javascript
+   const uploadImagePlugin = ueditor => {
+     return {
+       menuText: '图片上传',
+       cssRules: 'background-position: -726px -77px;',
+       render: (visible, closeModal) => {
+         const handleSelectImage = (url) => {
+           ueditor.focus()
+           ueditor.execCommand('inserthtml', `<img src="${url}" />`)
+           closeModal()
+         }
+         return <Modal visible={visible} onSelectImage={handleSelectImage} />
+       }
+     }
+   }
 
-    <ReactUeditor
-      ...
-      plugins={[uploadImagePlugin]}
-      ...
-    />
-    ```
+   <ReactUeditor
+     ...
+     plugins={[uploadImagePlugin]}
+     ...
+   />
+   ```
 
 更多功能请移步到 react-ueditor 的 [wiki 页面](https://github.com/ifanrx/react-ueditor/wiki)
 

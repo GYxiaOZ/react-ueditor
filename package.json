@@ -1,6 +1,6 @@
 {
-  "name": "gmsoft-react-ueditor",
-  "version": "1.0.0",
+  "name": "@gyxiaoz/gmsoft-react-ueditor",
+  "version": "1.0.1",
   "description": "an ueditor component for react",
   "main": "lib",
   "scripts": {
@@ -10,16 +10,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/GYxiaOZ/react-ueditor"
-  },
-  "publishConfig": {
-    "registry": "http://192.168.2.11:4873"
+    "url": "git+https://github.com/GYxiaOZ/react-ueditor.git"
   },
   "keywords": [
     "ueditor",
     "react"
   ],
-  "author": "zzx",
+  "author": "GYxiaOZ",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/GYxiaOZ/react-ueditor/issues"
@@ -31,7 +28,7 @@
     "README.md"
   ],
   "dependencies": {
-    "rc-dialog": "6.5.11"
+    "antd": "^3.25.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.1.5",
@@ -62,5 +59,9 @@
     "webpack": "^4.26.1",
     "webpack-cli": "^3.1.2",
     "webpack-dev-server": "^3.1.10"
+  },
+  "directories": {
+    "example": "example",
+    "lib": "lib"
   }
 }
