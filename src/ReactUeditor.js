@@ -396,6 +396,16 @@ class ReactUeditor extends React.Component {
 
     getRef && getRef(this.ueditor);
     this.ueditor.ready(() => {
+      const domUtils = container.UE.dom.domUtils;
+      // 添加剪切时的监听事件，修复剪切不能触发onChang的bug
+      domUtils.on(this.ueditor.body, 'cut', function() {
+        setTimeout(() => {
+          const content = this.ueditor.getContent();
+          this.content = this.ueditor.getContent();
+          onChange && onChange(content);
+        });
+      });
+
       this.ueditor.addListener('contentChange', () => {
         // 由 componentWillReceiveProps 导致的 contentChange 不需要通知父组件
         if (this.isContentChangedByWillReceiveProps) {
