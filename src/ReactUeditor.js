@@ -135,6 +135,15 @@ class ReactUeditor extends React.Component {
     if (this.ueditor) {
       this.ueditor.destroy();
     }
+    var container = this.props.container;
+    // 将自定义控件中有id的清空，解决卸载后不能重新渲染自定义控件的问题
+    if (container && container.UE) {
+      for (var key in container.UE._customizeUI) {
+        if (container.UE._customizeUI[key].id) {
+          delete container.UE._customizeUI[key];
+        }
+      }
+    }
   }
 
   createScript = url => {
